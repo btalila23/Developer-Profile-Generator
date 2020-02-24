@@ -1,17 +1,18 @@
-const inquirer = require('inquirer');
-const pdf = require("pdf-creator-node");
+const inquirer = require("inquirer");
+const {easy, medium, hard} = require('./generateHTML');
 const axios = require('axios');
-const url = "https://api.github.com/users/";
-inquirer
-.prompt([{
-    name:"username"
-    message: "What is your Github username?"
-}])
-.then(answer=>{
-    axios.get(url + answers.username).then(response=>{
-        console.log(response);
-        //create pdf here
-    }
+function getUserInput() {
+    return inquirer.prompt ([{
+        type: 'input'
+        message: 'Input your github username'
+        default: 'btalila23'
+        name: 'username',
 
-    
-})
+
+    }])
+}
+
+async function main() {
+    const response = await getUserInput();
+    easy(username, color);
+}
