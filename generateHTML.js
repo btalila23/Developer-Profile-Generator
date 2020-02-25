@@ -1,4 +1,11 @@
-const easy = function(username, color) {
+const fs = require('fs');
+const util = require('util');
+const writeFilePromise = util.promisify(fs.writeFile);
+const generateFileName = function() {
+    return `${(new Date).getTime()}.html`;
+}
+
+const easy = async function(username, color) {
     const htmlString = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -11,6 +18,8 @@ const easy = function(username, color) {
     </body>
     </html>
     `;
+
+    await writeFilePromise(generateFileName(), htmlString);
 }
 
 
