@@ -25,4 +25,6 @@ const easy = async function(username, color) {
 
 module.exports = {
     easy,
+    medium,
+    hard
 }
