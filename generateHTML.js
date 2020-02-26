@@ -1,5 +1,6 @@
 const fs = require('fs');
 const util = require('util');
+const readFilePromise = util.promisify(fs.readFile);
 const writeFilePromise = util.promisify(fs.writeFile);
 const generateFileName = function() {
     return `${(new Date).getTime()}.html`;
